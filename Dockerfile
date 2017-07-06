@@ -1,17 +1,17 @@
-FROM centos:7
-RUN yum -y update
-RUN yum install --assumeyes \
+FROM ubuntu:16.04
+RUN apt-get update -y
+RUN apt-get install -y vim \
     emacs \
     wget \
-    antlr-tool \
+    antlr4 \
     autoconf \
-    boost-devel \
-    expat-devel \
-    libcurl-devel \ 
-    gcc-c++ \ 
+    libboost-all-dev \
+    libexpat1-dev \
+    libcurl4-gnutls-dev \ 
+    g++ \ 
     swig \ 
     make \
     cmake \
-    python-devel; yum clean all;
+    python-dev;
 ADD setup.sh /tmp/setup.sh
 RUN /tmp/setup.sh
